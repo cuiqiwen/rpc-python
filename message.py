@@ -4,7 +4,7 @@
 序列化方式采用json（还有其他很多方式）
 by cuiqiwenfirst@qq.com
 """
-import json
+import ujson as json
 import struct
 
 
