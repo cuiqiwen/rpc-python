@@ -14,6 +14,12 @@ def ping(conn, params):
     conn.sendall(response)
 
 
+def test(params):
+    """执行请求业务处理"""
+
+    return f"{params} +++ world"
+
+
 def hello(conn, params):
     """处理hello指令函数"""
     length, response = RpcMessage.response("world", params)
@@ -29,4 +35,4 @@ if __name__ == "__main__":
     # 注册handler函数
     server.register_handler(RpcMessage.COMMAND_PING, ping)
     server.register_handler(RpcMessage.COMMAND_HELLO, hello)
-    server.run()
+    server.run(using_pre_forking=True, workers=3)

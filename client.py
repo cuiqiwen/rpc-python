@@ -70,7 +70,7 @@ if __name__ == "__main__":
         """模拟用例"""
         with RpcClient("localhost", 8080) as client:
             print("客户端连接成功...")
-            for i in range(10):  # 连续发送 10 个 rpc 请求
+            for i in range(100):  # 连续发送 10 个 rpc 请求
                 out, result = client.rpc(RpcMessage.COMMAND_PING, "ireader %d" % i)
                 print(out, result)
                 # out, result = client.rpc("test", "ireader %d" % i)
